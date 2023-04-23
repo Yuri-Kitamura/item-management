@@ -46,9 +46,9 @@
                             <td>{{ $item->id }}</td>
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->type }}</td>
-                            <td>
-                                <span class="detail-text">{{ $item->detail }}</span>
-                                <button type="button" class="btn btn-info small-button" data-bs-toggle="modal" data-bs-target="#modal-{{ $item->id }}">詳細</button>
+                            <td class="detail-cell">
+                                <span class="detail-text">{{ Str::limit($item->detail, 20, '...') }}</span>
+                                <button type="button" class="btn btn-info small-button" data-toggle="modal" data-target="#modal-{{ $item->id }}">詳細</button>
                             </td>
                             <td>
                                 <a href="{{ route('item.edit', $item->id) }}" class=" btn btn-primary small-button">編集</a>
@@ -65,7 +65,7 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title w-100 text-center" id="modal-{{ $item->id }}-label">{{ $item->name }}</h5>
-                                        <button type="button" class="btn-close ms-auto" data-bs-dismiss="modal" aria-label="閉じる"></button>
+                                        <button type="button" class="btn-close ms-auto" data-dismiss="modal" aria-label="閉じる"></button>
                                     </div>
                                     <div class="modal-body">
                                         <p>【ID】{{ $item->id }}</p>
@@ -73,7 +73,7 @@
                                         <p>【詳細】<br> {{ $item->detail }}</p>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
                                     </div>
                                 </div>
                             </div>
