@@ -27,11 +27,8 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
 
-        if (env('FORCE_HTTPS', false)) {
-            URL::forceScheme('https');
+        if(\App::environment(['production']) || \App::environment(['develop'])){
+            \URL::forceScheme('https');
         }
-        // if(\App::environment(['production']) || \App::environment(['develop'])){
-        //     \URL::forceScheme('https');
-        //}
     }
 }
