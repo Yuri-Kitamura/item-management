@@ -1,35 +1,35 @@
-## 商品管理システム
+# 商品管理システム
 
-### 環境構築手順
+## 概要
+このシステムでは、店舗で扱う商品の管理を行うことができます。
+商品の新規登録、編集、削除を行うことができ、登録した商品を検索することもできます。
+アカウントの権限設定によって使える機能を制限することも可能です。
 
-* Gitクローン
-* .env.example をコピーして .env を作成
-* MySQLかPostgreSQLのデータベース作成（名前：item_management）  
-  ローカルでMAMPを使用しているのであれば、MySQL推奨
-* .env にデータベース接続情報追加
+## 主な機能
+- ログイン・ログアウト機能
+- 商品一覧機能
+- 商品の新規登録、編集、削除機能
+- 商品検索機能
+- アカウントの権限付与機能
+
+## 開発環境
 ```
-例）
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=item_management
-DB_USERNAME=root
-DB_PASSWORD=root
+PHP 7.4
+MySQL 5.7.39
+Laravel 8
+
 ```
-* APP_KEY生成
+## 設計書
+[設計書ページ](https://docs.google.com/spreadsheets/d/1XrabZNbvgaxKQfucC2LsCAG3xcDJ0kmy/edit#gid=985260754)
+
+## システム閲覧
+https://item-management-yuri.herokuapp.com/
+
+### テストアカウント情報
 ```
-$ php artisan key:generate
-```
-* Composerインストール
-```
-$ composer install
-```
-* フロント環境構築
-```
-$ npm install
-$ npm run dev
-```
-* マイグレーション
-```
-$ php artisan migrate
+一般メールアドレス：new1@example.com
+管理者メールアドレス：kitamura@techis.com
+一般パスワード：12345678
+管理者パスワード：qwerty1234
+
 ```
